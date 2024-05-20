@@ -84,10 +84,20 @@ html {
 }
 body {
     height: calc(100% - 16px);
+    margin: 8px;
+}
+
+#app {
+    height: 100%;
+    margin: 0;
+}
+
+#app > .page {
+    height: 100%;
+    margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
     justify-content: center;
-    margin: 8px;
 }
 
 /* Thème clair */
@@ -103,12 +113,12 @@ body.dark-theme {
 }
 
 
-body header {
+.page > header {
     padding-bottom: 8px;
     border-bottom: 1px solid #e5e5e5;
 }
 
-body.dark-theme header {
+body.dark-theme .page > header {
     border-bottom: 1px solid var(--dark-primary-bg-color-accent);
 }
 

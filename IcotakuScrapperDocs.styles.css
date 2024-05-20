@@ -1,80 +1,67 @@
-/* /Layout/MainLayout.razor.rz.scp.css */
-.page[b-3uicdc6usb] {
-    position: relative;
+/* /Components/Alert.razor.rz.scp.css */
+.alert-container[b-2quofnyvs5] {
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-size: 1em;
 }
 
-main[b-3uicdc6usb] {
-    flex: 1;
+.alert-container.hidden[b-2quofnyvs5] {
+    display: none;
 }
 
-.sidebar[b-3uicdc6usb] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+.alert-container.alert-info[b-2quofnyvs5] {
+    color: #004085 !important;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
 }
 
-.top-row[b-3uicdc6usb] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
+.alert-container.alert-info i[b-2quofnyvs5],
+.alert-container.alert-info p[b-2quofnyvs5] {
+    color: #004085 !important;
 }
 
-    .top-row[b-3uicdc6usb]  a, .top-row[b-3uicdc6usb]  .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row[b-3uicdc6usb]  a:hover, .top-row[b-3uicdc6usb]  .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row[b-3uicdc6usb]  a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-@media (max-width: 640.98px) {
-    .top-row[b-3uicdc6usb] {
-        justify-content: space-between;
-    }
-
-    .top-row[b-3uicdc6usb]  a, .top-row[b-3uicdc6usb]  .btn-link {
-        margin-left: 0;
-    }
+.alert-container.alert-warning[b-2quofnyvs5] {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
 }
 
-@media (min-width: 641px) {
-    .page[b-3uicdc6usb] {
-        flex-direction: row;
-    }
+.alert-container.alert-warning i[b-2quofnyvs5],
+.alert-container.alert-warning p[b-2quofnyvs5] {
+    color: #856404 !important;
+}
 
-    .sidebar[b-3uicdc6usb] {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
+.alert-container.alert-danger[b-2quofnyvs5] {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
 
-    .top-row[b-3uicdc6usb] {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
+.alert-container.alert-danger i[b-2quofnyvs5],
+.alert-container.alert-danger p[b-2quofnyvs5] {
+    color: #721c24 !important;
+}
 
-    .top-row.auth[b-3uicdc6usb]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
+.alert-container.alert-success[b-2quofnyvs5] {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
 
-    .top-row[b-3uicdc6usb], article[b-3uicdc6usb] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
+.alert-container.alert-success i[b-2quofnyvs5],
+.alert-container.alert-success p[b-2quofnyvs5] {
+    color: #155724 !important;
+}
+
+.alert-container p[b-2quofnyvs5] {
+    margin: 0;
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-yvoeg4ru4b] {
@@ -159,4 +146,41 @@ main[b-3uicdc6usb] {
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
+}
+/* /Pages/Anime/ScrapSheet.razor.rz.scp.css */
+.playground-params-container[b-ecise14z56] {
+    min-height: 80px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap:10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 10px;
+}
+
+body.dark-theme .playground-params-container[b-ecise14z56] {
+    background: #303030;
+    color: var(--dark-secondary-color);
+}
+
+.playground-params-container input[b-ecise14z56]{
+    background: transparent;
+    border: none;
+    font-size: 1em;
+}
+
+.playground-params-container button[b-ecise14z56]{
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.playground-params-container button i[b-ecise14z56] {
+    color: green;
+}
+
+body.dark-theme .playground-params-container button[b-ecise14z56],
+body.dark-theme .playground-params-container input[type=url][b-ecise14z56]{
+    color: var(--dark-secondary-color);
 }
