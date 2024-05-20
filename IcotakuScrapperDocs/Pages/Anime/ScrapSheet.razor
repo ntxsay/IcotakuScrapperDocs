@@ -1,0 +1,205 @@
+﻿@page "/Anime/ScrapSheet"
+@implements IDisposable
+@inject ILogger<ScrapSheet> Logger
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<PageTitle>Scrapper une fiche</PageTitle>
+<!-- Contenu de la documentation -->
+<article>
+    <header>
+        <div class="title-container">
+            <span class="emoji">&#x1F578;</span>
+            <h1>Scrapper une fiche</h1>
+        </div>
+        <p class="description">Vous découvrirez, tout au long de cette section, comment scrapper une fiche.</p>
+    </header>
+    <div class="alert-container alert-info">
+        <i class="fa-solid fa-circle-info"></i>
+        <p>Lorsque que vous scrappez une fiche, elle est automatiquement stockée dans la base de données afin de limiter les appels vers le site d'Icotaku.</p>
+    </div>
+    <section id="scrap_from_url" class="documentation-section section_lv_1">
+        <header>
+            <h2>Scrapper une fiche via son url</h2>
+        </header>
+        <p>Dans l'exemple suivant, vous verrez comment scrapper la fiche de l'animé Dr. Stone via l'url complète de sa fiche <a href="https://anime.icotaku.com/anime/5633/Dr-STONE.html">https://anime.icotaku.com/anime/5633/Dr-STONE.html</a>. </p>
+        <article id="scrap_from_url_tab" class="tab-container">
+            <header class="tab-header">
+                <button class="tab-item selected" data-tab-id="0" @onclick="() => SelectTab(0)">C#</button>
+                <button class="tab-item" data-tab-id="1" @onclick="() => SelectTab(1)">Tester</button>
+            </header>
+            <div class="tab-content">
+                <div class="tab-item selected" data-tab-id="0">
+                    <pre>
+            <code class="language-csharp">
+//Récupère les informations de l'anime via l'url de la fiche
+var anime = await Anime.ScrapAsync("https://anime.icotaku.com/anime/5633/Dr-STONE.html");
+
+if (anime is null)
+{
+    Console.WriteLine("L'anime n'a pas été trouvé");
+    return;
+}
+
+//Obtient le nom de l'anime
+Console.WriteLine(anime.Name);
+
+//Obtient le nombre d'épisodes
+Console.WriteLine(anime.EpisodeCount);
+
+//obtient le synopsis
+Console.WriteLine(anime.Synopsis);
+
+//Obtient la date de sortie
+Console.WriteLine(anime.ReleaseDate.ToString());
+
+//...
+                </code>
+            </pre>
+                </div>
+                <div class="tab-item" data-tab-id="1">
+                    <div class="playground-params-container">
+                        @if (!IsScrapFromUrlRunning)
+                        {
+                            <span>></span>
+                            <input type="url" placeholder="Entrez l'url de la fiche anime d'Icotaku" value="@IcotakuUrl"/>
+                            <button><i class="fa-solid fa-play" @onclick="OnPlaygroundScrapUrl"></i> Essayez-le</button>
+                        }
+                        else
+                        {
+                            <p><i class="fa-solid fa-spinner fa-spin"></i> L'opération de scraping de l'animé est en cours et peut prendre jusqu'à trois minutes en fonction de la qualité de votre connexion internet.</p>
+                        }
+                    </div>
+                    <div class="playground-results">
+                        @if (!string.IsNullOrEmpty(ScrapFromUrlError))
+                        {
+                            <Alert Mode="AlertMode.Danger" IconType="AlertIcon.Warning" IsHidden="false">
+                                <Content>@ScrapFromUrlError</Content>
+                            </Alert>
+                        }
+                    </div>
+                </div>
+            </div>
+        </article>
+        <table>
+            <thead>
+            <tr>
+                <th>Paramètre</th>
+                <th>Type</th>
+                <th>Requis</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <code>icotakuUrl</code>
+                </td>
+                <td><code>string</code></td>
+                <td>Oui</td>
+                <td>L'url de la fiche de l'animé sur le site d'Icotaku</td>
+            </tr>
+            <tr>
+                <td>
+                    <code>options</code>
+                </td>
+                <td>
+                    <code>AnimeScrapingOptions</code>
+                </td>
+                <td>Non</td>
+                <td>indique quelles informations de l'animé doivent être scrapées</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="scrap_anime_from_url_playground" class="playground-container">
+
+            <div class="playground-results">
+                <div class="alert-container alert-warning hidden">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <p>L'opération de scraping de l'animé est en cours et peut prendre jusqu'à trois minutes en fonction de la qualité de votre connexion internet.</p>
+                </div>
+            </div>
+            <div class="playground-commands grid_1fr_auto_auto">
+                <input id="scrap_anime_from_url_playground_input" type="url" placeholder="Entrez l'url de la fiche anime d'Icotaku" value="https://anime.icotaku.com/anime/5633/Dr-STONE.html"/>
+                <button class="run-playground-btn"><i class="fa-solid fa-play"></i> Essayez-le</button>
+                <button class="clear-playground-result-btn"><i class="fa-solid fa-trash"></i> Effacer les résultats</button>
+            </div>
+        </div>
+    </section>
+    <section id="get_from_url" class="documentation-section section_lv_1">
+        <header>
+            <h2>Scrapper une fiche via son url</h2>
+        </header>
+        <p>Dans l'exemple suivant, vous verrez comment scrapper la fiche de l'animé Dr. Stone via l'url complète de sa fiche <a href="https://anime.icotaku.com/anime/5633/Dr-STONE.html">https://anime.icotaku.com/anime/5633/Dr-STONE.html</a>. </p>
+        <pre>
+            <code class="language-csharp">
+//Récupère les informations de l'anime via l'url de la fiche
+var anime = await Anime.GetAsync(icotakuUrl: "https://anime.icotaku.com/anime/1226/Gintama-.html", scrapIfNotExists: true);
+
+if (anime is null)
+{
+    Assert.Fail("L'anime n'a pas été trouvé");
+    return;
+}
+
+//...
+                </code>
+            </pre>
+        <section id="get_from_url_params" class="documentation-section section_lv_2">
+            <header>
+                <h3>Paramètres</h3>
+            </header>
+            <p>Le scraping (ou "scrappage") est une méthode utilisée pour extraire des données à partir du site web d'Icotaku en analysant leur structure HTML ou en simulant le comportement d'un utilisateur pour récupérer des informations.</p>
+
+        </section>
+    </section>
+    <section id="scrap_from_id" class="documentation-section section_lv_1">
+        <header>
+            <h2>Scrapper une fiche via son Id</h2>
+        </header>
+        <p>Dans l'exemple suivant, vous verrez comment scrapper la fiche de l'animé Dr. Stone via l'Id n°5633 extrait de l'url de sa fiche : "<a href="https://anime.icotaku.com/anime/5633/Dr-STONE.html">https://anime.icotaku.com/anime/5633/Dr-STONE.html</a>"</p>
+        <pre>
+            <code class="language-csharp">
+//Récupère les informations de l'anime via l'id de sa fiche
+var anime = await Anime.GetAsync(icotakuId: 5633);
+
+if (anime is null)
+{
+    Assert.Fail("L'anime n'a pas été trouvé");
+    return;
+}
+
+//...
+                </code>
+            </pre>
+    </section>
+
+    <div class="pagination-container">
+        <a href="#" class="page-previous">
+            <div class="page-container">
+                <div class="page-icon-container">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <div class="page-info">
+                    <span class="page-direction">Précédent</span>
+                    <span class="page-title">Restituer une fiche</span>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="page-next">
+            <div class="page-container">
+                <div class="page-info">
+                    <span class="page-direction">Suivant</span>
+                    <span class="page-title">Restituer une fiche</span>
+                </div>
+                <div class="page-icon-container">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+</article>
+
+@code {
+    
+}

@@ -1,0 +1,36 @@
+﻿.playground-params-container {
+    min-height: 80px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap:10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 10px;
+}
+
+body.dark-theme .playground-params-container {
+    background: #303030;
+    color: var(--dark-secondary-color);
+}
+
+.playground-params-container input{
+    background: transparent;
+    border: none;
+    font-size: 1em;
+}
+
+.playground-params-container button{
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.playground-params-container button i {
+    color: green;
+}
+
+body.dark-theme .playground-params-container button,
+body.dark-theme .playground-params-container input[type=url]{
+    color: var(--dark-secondary-color);
+}

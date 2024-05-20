@@ -1,10 +1,17 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    // Load any languages you need
+const darkHightlightCssRef = 'lib/highlight/styles/dark.css';
+const lightHightlightCssRef = 'lib/highlight/styles/default.css';
+window.loadAllHighlight = () => {
     hljs.highlightAll();
-});
+};
 
-document.getElementById('toggle-theme-btn').addEventListener('click', function () {
+window.toggleTheme = () =>{
     const body = document.body;
     body.classList.toggle('dark-theme');
-    localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
-});
+    const isDarkTheme = body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+
+    const cssElement = document.getElementById('highlightThemeCss');
+    cssElement.setAttribute("href", isDarkTheme
+        ? darkHightlightCssRef
+        : lightHightlightCssRef);
+};

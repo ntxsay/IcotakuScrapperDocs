@@ -166,3 +166,54 @@ body.dark-theme blockquote.quote-container {
 .pagination-container a.page-next .page-info .page-direction {
     text-align: left;
 }
+
+/******** Tab ********/
+
+.tab-container {
+    padding: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--light-quaternary-bg-color);
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+body.dark-theme .tab-container {
+    border: 1px solid var(--dark-quaternary-bg-color);
+}
+
+.tab-container > .tab-header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.tab-container > .tab-header > .tab-item {
+    background: transparent;
+    padding: 8px 10px;
+    border: none;
+    border-bottom: 4px solid transparent;
+    cursor: pointer;
+}
+
+.tab-container > .tab-header > .tab-item.selected {
+    border-bottom: 4px solid var(--light-quaternary-bg-color);
+    cursor: default;
+}
+
+body.dark-theme .tab-container > .tab-header > .tab-item {
+    color: var(--dark-secondary-color);
+}
+
+body.dark-theme .tab-container > .tab-header > .tab-item.selected {
+    border-bottom: 4px solid var(--dark-quaternary-bg-color);
+}
+
+.tab-container > .tab-content > .tab-item {
+    display: none;
+}
+
+.tab-container > .tab-content > .tab-item.selected {
+    display: block;
+}

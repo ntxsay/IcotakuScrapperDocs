@@ -1,7 +1,114 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Bienvenue</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<!-- Contenu de la documentation -->
+<article>
+    <header>
+        <div class="title-container">
+            <span class="emoji">👋🏾</span>
+            <h1>Bienvenue</h1>
+        </div>
+        <p class="description"></p>
+    </header>
+    <div class="icotaku-logo-container">
+        <a href="https://anime.icotaku.com/"><img src="medias/logo-icotaku.png" id="welcome-img" alt="logo d'icotaku pointant vers son site"/></a>
+    </div>
+    <section id="before-start" class="documentation-section section_lv_1">
+        <header>
+            <h2>Avant de commencer</h2>
+        </header>
+        <div class="alert-container alert-info">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Cet outils a été développé car le site Icotaku.com permet l’obtention de ses informations librement à condition de citer la source, je cite :</p>
+        </div>
+        <blockquote class="quote-container">
+            <p>Puis-je utiliser le contenu d'Icotaku sur mon site ?<br/>A condition de citer la source, vous pouvez utiliser/citer les synopsis/informations de Icotaku. Les textes d'Icotaku sont disponibles sous les termes de la licence de documentation libre GNU (GFDL). Attention ! Toutes les œuvres présentées sur Icotaku appartiennent à leurs auteurs respectifs. <a href="https://communaute.icotaku.com/faq.html#6">Voir la FAQ Icotaku</a></p>
+        </blockquote>
+        <div class="alert-container alert-warning">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>Je tiens à préciser que ce projet est une initiative personnelle et n'a pas été mandaté ou approuvé par Icotaku.com. L'utilisation du nom et du logo d'Icotaku.com dans le projet actuel est strictement limitée à une citation de source conforme à leurs directives.</p>
+        </div>
+        <div class="alert-container alert-info">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Le logo Icotaku et le nom Icotaku présenté dans la documentation appartiennent à l'association Icotaku.</p>
+        </div>
+        <div class="alert-container alert-info">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Toutes les œuvres présentées dans la documentation appartiennent à leurs auteurs respectifs. </p>
+        </div>
+    </section>
+    <section id="project-presentation" class="documentation-section section_lv_1">
+        <header>
+            <h2>Présentation du projet</h2>
+        </header>
+        <p>Ce projet permet l'obtention et le stockage local de synopsis d'animés (pour le moment) depuis le site web de l'association Icotaku vers une base de données SQLite via la méthode du scraping.</p>
+        <section id="what-is-scraping" class="documentation-section section_lv_2">
+            <header>
+                <h3>Qu'est-ce que le scraping</h3>
+            </header>
+            <p>Le scraping (ou "scrappage") est une méthode utilisée pour extraire des données à partir du site web d'Icotaku en analysant leur structure HTML ou en simulant le comportement d'un utilisateur pour récupérer des informations.</p>
+        </section>
+        <section id="objectifs" class="documentation-section section_lv_2">
+            <header>
+                <h3>Objectif(s)</h3>
+            </header>
+            <p>Aucune API Icotaku officielle n'est disponible pour accéder à ses ressources,  de ce fait ce projet a pour objectif le développement d'une API non officiel et dédiée afin d'offrir aux développeurs un accès structuré et fiable aux données d'Icotaku.</p>
+        </section>
+    </section>
+    <section id="contribution" class="documentation-section section_lv_1">
+        <header>
+            <h2>Contribution</h2>
+        </header>
+        <p>Si vous trouvez que ce projet mérite une contribution, alors on y va ensemble.</p>
+    </section>
+    <section id="soutient-icotaku" class="documentation-section section_lv_1">
+        <header>
+            <h2>Soutenez Icotaku.com</h2>
+        </header>
+        <p>Sauf erreur de ma part mais je n'ai trouvé aucun autre site ou plateforme assez bien structuré(e) et permettant l'utilisation de leur ressource gratuitement et sans contrepartie contraignante. Vraiment un grand merci Icotaku !</p>
+    </section>
+    <section id="license" class="documentation-section section_lv_1">
+        <header>
+            <h2>Utilisation</h2>
+        </header>
+        <p>Ce projet est libre, vous pouvez le modifier, simplement n'oubliez pas que la documentation d'Icotaku.com est sous licence de documentation libre GNU (GFDL).</p>
+    </section>
+    <section id="exclusion" class="documentation-section section_lv_1">
+        <header>
+            <h2>Exclusion de responsabilités</h2>
+        </header>
+        <div class="alert-container alert-danger">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>Le projet est fourni "tel quel", sans aucune garantie, expresse ou implicite.
+                <br/><br/>
+                Le développeur n'assume aucune responsabilité quant à l'exactitude, à la fiabilité ou à la disponibilité du projet.
+                <br/><br/>
+                Le développeur n'est pas responsable des pertes ou dommages résultant de l'utilisation du projet dans le votre ou de l'impossibilité de l'utiliser.</p>
+        </div>
+    </section>
+    <div class="pagination-container">
+        <a href="#" class="page-previous">
+            <div class="page-container">
+                <div class="page-icon-container">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <div class="page-info">
+                    <span class="page-direction">Précédent</span>
+                    <span class="page-title">Restituer une fiche</span>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="page-next">
+            <div class="page-container">
+                <div class="page-info">
+                    <span class="page-direction">Suivant</span>
+                    <span class="page-title">Restituer une fiche</span>
+                </div>
+                <div class="page-icon-container">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+</article>

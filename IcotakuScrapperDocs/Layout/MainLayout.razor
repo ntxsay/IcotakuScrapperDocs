@@ -1,15 +1,20 @@
 ﻿@inherits LayoutComponentBase
+@implements IDisposable
+@inject ILogger<MainLayout> Logger
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
 <div class="page">
     <header>
         <nav>
             <div class="logo-container">
-                <a>
+                <a href="/">
                     <img src="medias/icotaku-55ddd056f6734e5dab2bd2a448c9ca11.jpg" alt="IcotakuScrapper"/>
                     <span>Documentation d'IcotakuScrapper</span>
                 </a>
             </div>
             <div class="content-container">
-                <button id="toggle-theme-btn"><i class="fa-solid fa-circle-half-stroke"></i></button>
+                <button id="toggle-theme-btn" @onclick="ToggleTheme"><i class="fa-solid fa-circle-half-stroke"></i></button>
             </div>
         </nav>
     </header>
@@ -49,7 +54,19 @@
         <aside class="current-documentation-navigation">
             <p>Dans cette page : </p>
             <ul>
-                
+                @if (Navigation.Uri.Contains("ScrapSheet"))
+                {
+                    <li>
+                        <a href="#scrap_from_url">
+                            <span>Scrapper une fiche via son url</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#scrap_from_id">
+                            <span>Scrapper une fiche via son id</span>
+                        </a>
+                    </li>
+                }
             </ul>
         </aside>
     </main>
