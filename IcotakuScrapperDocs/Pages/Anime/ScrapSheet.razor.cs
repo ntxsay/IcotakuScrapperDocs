@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using AppsHelpers.Extensions.StringExtensions;
+using HtmlAgilityPack;
+using IcotakuScrapper.Models.SQLite.Anime;
+using IcotakuScrapper.Objects.Scrapping;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
 
@@ -6,9 +10,12 @@ namespace IcotakuScrapperDocs.Pages.Anime;
 
 public partial class ScrapSheet : ComponentBase
 {
-    private string? IcotakuUrl { get; set; } = "https://anime.icotaku.com/anime/5633/Dr-STONE.html";
+    private string IcotakuUrl { get; set; } = "https://anime.icotaku.com/anime/5633/Dr-STONE.html";
     private bool IsScrapFromUrlRunning { get; set; }
     private string? ScrapFromUrlError { get; set; }
+    
+    private AnimeBase? ScrapFromUrlResult { get; set; }
+
     private void NavigateToCounterComponent()
     {
         Navigation.NavigateTo("counter");
@@ -18,7 +25,7 @@ public partial class ScrapSheet : ComponentBase
     {
         Navigation.LocationChanged += HandleLocationChanged;
     }
-    
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(100);
@@ -46,29 +53,27 @@ public partial class ScrapSheet : ComponentBase
     /// </summary>
     private async Task OnPlaygroundScrapUrl()
     {
-        Dictionary<string, string?> results;
-//Récupère les informations de l'anime via l'url de la fiche
-        var anime = await Anime.ScrapAsync(url, AnimeScrapingOptions.Basic);
-
-        if (anime is null)
+        IsScrapFromUrlRunning = true;
+        StateHasChanged();
+        
+        if (IcotakuUrl.IsStringNullOrEmptyOrWhiteSpace() || !Uri.TryCreate(IcotakuUrl, UriKind.Absolute, out _))
         {
-            results = new Dictionary<string, string?>
-            {
-                {"Erreur", "L'anime n'a pas été trouvé"}
-            };
-    
-            return results;
+            IsScrapFromUrlRunning = false;
+            ScrapFromUrlError = "L'URL n'est pas valide";
+            StateHasChanged();
+            return;
         }
+        
+        //Récupère les informations de l'anime via l'url de la fiche
+        ScrapFromUrlResult = await IcotakuScrapper.Anime.ScrapAsync(IcotakuUrl, AnimeScrapingOptions.Basic);
+        IsScrapFromUrlRunning = false;
 
-        results =  new Dictionary<string, string?>
+        if (ScrapFromUrlResult is null)
         {
-            {"Nom", anime.Name},
-            {"Nombre d'épisodes", anime.EpisodeCount.ToString()},
-            {"Synopsis", anime.Synopsis},
-            {"Date de sortie", anime.ReleaseDate.ToString()}
-        };
-
-        return results;
+            ScrapFromUrlError = "Impossible de récupérer les informations de l'anime";
+        }
+        
+        StateHasChanged();
     }
 
     public void Dispose()

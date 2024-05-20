@@ -63,7 +63,7 @@ Console.WriteLine(anime.ReleaseDate.ToString());
                         {
                             <span>></span>
                             <input type="url" placeholder="Entrez l'url de la fiche anime d'Icotaku" value="@IcotakuUrl"/>
-                            <button><i class="fa-solid fa-play" @onclick="OnPlaygroundScrapUrl"></i> Essayez-le</button>
+                            <button @onclick="OnPlaygroundScrapUrl"><i class="fa-solid fa-play"></i> Essayez-le</button>
                         }
                         else
                         {
@@ -76,6 +76,26 @@ Console.WriteLine(anime.ReleaseDate.ToString());
                             <Alert Mode="AlertMode.Danger" IconType="AlertIcon.Warning" IsHidden="false">
                                 <Content>@ScrapFromUrlError</Content>
                             </Alert>
+                        }
+                        else
+                        {
+                            <ul>
+                                @if (ScrapFromUrlResult is not null)
+                                {
+                                    <li>
+                                        <span>Nom de l'anime : @ScrapFromUrlResult.Name</span>
+                                    </li>
+                                    <li>
+                                        <span>Nombre d'épisodes : @ScrapFromUrlResult.EpisodeCount</span>
+                                    </li>
+                                    <li>
+                                        <span>Synopsis : @ScrapFromUrlResult.Synopsis</span>
+                                    </li>
+                                    <li>
+                                        <span>Date de sortie : @ScrapFromUrlResult.ReleaseDate</span>
+                                    </li>
+                                }
+                            </ul>
                         }
                     </div>
                 </div>

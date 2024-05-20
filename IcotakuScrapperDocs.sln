@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcotakuScrapperDocs", "IcotakuScrapperDocs\IcotakuScrapperDocs.csproj", "{8DBB941D-FB3A-47DC-8743-FE920EFBEE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IcotakuScrapperDocs", "IcotakuScrapperDocs\IcotakuScrapperDocs.csproj", "{8DBB941D-FB3A-47DC-8743-FE920EFBEE7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IcotakuScrapper", "..\IcotakuScrapper\IcotakuScrapper\IcotakuScrapper.csproj", "{2DB07815-7CFA-4160-8FF2-A3A74395611B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateTimesLib", "..\DateTimesLib\DateTimesLib.csproj", "{262D957C-2C11-438F-AECF-322CE9B5FEB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppsHelpers", "..\AppsHelpers\AppsHelpers\AppsHelpers.csproj", "{F4D46B01-4877-421F-B15A-1D02AFB6C566}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{8DBB941D-FB3A-47DC-8743-FE920EFBEE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DBB941D-FB3A-47DC-8743-FE920EFBEE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DBB941D-FB3A-47DC-8743-FE920EFBEE7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB07815-7CFA-4160-8FF2-A3A74395611B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB07815-7CFA-4160-8FF2-A3A74395611B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB07815-7CFA-4160-8FF2-A3A74395611B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB07815-7CFA-4160-8FF2-A3A74395611B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262D957C-2C11-438F-AECF-322CE9B5FEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262D957C-2C11-438F-AECF-322CE9B5FEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262D957C-2C11-438F-AECF-322CE9B5FEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262D957C-2C11-438F-AECF-322CE9B5FEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D46B01-4877-421F-B15A-1D02AFB6C566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D46B01-4877-421F-B15A-1D02AFB6C566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D46B01-4877-421F-B15A-1D02AFB6C566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D46B01-4877-421F-B15A-1D02AFB6C566}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
