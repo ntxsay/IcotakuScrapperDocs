@@ -1,0 +1,168 @@
+/******* Alert ********/
+.alert-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-size: 1em;
+}
+
+.alert-container.hidden {
+    display: none;
+}
+
+.alert-container.alert-info {
+    color: #004085 !important;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+}
+
+.alert-container.alert-info i,
+.alert-container.alert-info p {
+    color: #004085 !important;
+}
+
+.alert-container.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+.alert-container.alert-warning i,
+.alert-container.alert-warning p {
+    color: #856404 !important;
+}
+
+.alert-container.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-container.alert-danger i,
+.alert-container.alert-danger p {
+    color: #721c24 !important;
+}
+
+.alert-container.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-container.alert-success i,
+.alert-container.alert-success p {
+    color: #155724 !important;
+}
+
+.alert-container p {
+    margin: 0;
+}
+
+/********* Quote ***************/
+
+blockquote.quote-container {
+    border-left: 4px solid #ededed;
+    padding: 10px 14px;
+    margin: 20px 0;
+}
+
+blockquote.quote-container p {
+    margin: 0;
+}
+
+body.dark-theme blockquote.quote-container {
+    border-left: 4px solid var(--dark-quinary-bg-color);
+}
+
+/********* Pagination ***************/
+
+.pagination-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.pagination-container a {
+    text-decoration: none;
+}
+
+.pagination-container .page-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.page-container i {
+    color: #346DDB;
+}
+
+.page-container .page-previous .page-container{
+    grid-template-columns: auto 1fr;
+}
+
+.page-container .page-next .page-container{
+    grid-template-columns: 1fr auto;
+}
+
+.page-container .page-icon-container {
+    display: flex;
+}
+
+.page-previous .page-container .page-icon-container {
+    justify-content: flex-start;
+}
+
+.page-next .page-container .page-icon-container {
+    justify-content: flex-end;
+}
+
+.pagination-container .page-info {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    color: black;
+}
+
+.pagination-container .page-previous .page-info {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.pagination-container .page-next .page-info {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.pagination-container .page-info .page-title {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #346DDB;
+}
+
+.pagination-container .page-info .page-direction {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.pagination-container a.page-previous .page-info .page-title,
+.pagination-container a.page-previous .page-info .page-direction {
+    text-align: right;
+}
+
+.pagination-container a.page-next .page-info .page-title,
+.pagination-container a.page-next .page-info .page-direction {
+    text-align: left;
+}

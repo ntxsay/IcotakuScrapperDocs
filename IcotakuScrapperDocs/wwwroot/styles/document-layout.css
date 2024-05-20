@@ -1,0 +1,96 @@
+
+
+#documentation-container > article {
+    font-family: Roboto, sans-serif;
+    font-size: 1.1em;
+    color: #333;
+    padding: 20px 15px;
+}
+
+/******** EN-TETE ********/
+#documentation-container > article > header {
+    border: none;
+    margin-bottom: 40px;
+}
+
+#documentation-container > article > header > .title-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+#documentation-container > article  > header > .title-container .document-title,
+#documentation-container > article > header > .title-container .emoji,
+#documentation-container > article > header > .title-container h1{
+    font-size: 2.1em;
+}
+
+#documentation-container > article > header > .title-container h1{
+    margin: 0;
+}
+
+#documentation-container > article > header > p.description {
+    font-size: 1.03em;
+    font-weight: 400;
+    margin: 4px 0 0 0;
+}
+
+/******** Section ********/
+.documentation-section.section_lv_1 {
+    margin: 60px 0;
+}
+
+.documentation-section.section_lv_2 {
+    margin: 30px 0;
+}
+
+.documentation-section > header   {
+    border: none;
+    margin: 24px 0 16px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.documentation-section > header > h2,
+.documentation-section.section_lv_1 > header > .emoji {
+    font-size: 1.65em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.documentation-section > header > h3,
+.documentation-section.section_lv_2 > header > .emoji {
+    font-size: 1.37em;
+    font-weight: 600;
+    margin: 0;
+}
+
+/******** Playground ********/
+
+.playground-container {
+
+    margin: 20px 0;
+}
+
+.playground-container > .playground-results {
+    
+}
+
+.playground-container > .playground-commands {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.playground-container > .playground-commands.grid_1fr_auto_auto {
+    grid-template-columns: 1fr auto auto;
+}
+
