@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "IcotakuScrapperDocs",
   "resources": {
-    "hash": "sha256-qGWE0IpuqmI946kpunsy69JNjCWQmKYs1pKc1JIsM/A=",
+    "hash": "sha256-bapLTJoYZak+vjsPfUmBREhQO5l9l1jqsbE6SL9PXeM=",
     "jsModuleNative": {
       "dotnet.native.8.0.5.k8qrcc28q0.js": "sha256-boyHe+0RMZDkzBKGhsrnXPhPg3oZ6UqJnTUzngJPjNY="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "IcotakuScrapperDocs.wasm": "sha256-AF+qxS0RZlY8eckjylXaNeSBFCd5yWTeLcjQgKp6nzo=",
+      "IcotakuScrapperDocs.wasm": "sha256-NdyBtRAaGD6n5BoHJcHLCS2jkwdK8+UenOaR9P73pj8=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-jhFUAA4B9wrfkdWzGgaVcU/y6H4IGCK2zFryHuv66PM=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-VnMUskpCPmW1fX4qZihu4ZyOPWe/cSBWh229O8+OZxU=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-9pa4TX6FPCR8IZ3hObhj8D/J0Rp+4PZ1bfCK0WQAIZ8=",
