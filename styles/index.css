@@ -1,0 +1,13 @@
+.icotaku-logo-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.icotaku-logo-container img {
+    height: 100px;
+    margin: 20px 0;
+}
