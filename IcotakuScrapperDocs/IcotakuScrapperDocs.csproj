@@ -544,8 +544,4 @@
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\IcotakuScrapper\IcotakuScrapper\IcotakuScrapper.csproj" />
-  </ItemGroup>
-
 </Project>

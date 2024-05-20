@@ -51,29 +51,11 @@ public partial class ScrapSheet : ComponentBase
     /// <summary>
     /// Exécute le scrap de l'URL donnée
     /// </summary>
-    private async Task OnPlaygroundScrapUrl()
+    private void OnPlaygroundScrapUrl()
     {
         IsScrapFromUrlRunning = true;
         StateHasChanged();
         
-        if (IcotakuUrl.IsStringNullOrEmptyOrWhiteSpace() || !Uri.TryCreate(IcotakuUrl, UriKind.Absolute, out _))
-        {
-            IsScrapFromUrlRunning = false;
-            ScrapFromUrlError = "L'URL n'est pas valide";
-            StateHasChanged();
-            return;
-        }
-        
-        //Récupère les informations de l'anime via l'url de la fiche
-        ScrapFromUrlResult = await IcotakuScrapper.Anime.ScrapAsync(IcotakuUrl, AnimeScrapingOptions.Basic);
-        IsScrapFromUrlRunning = false;
-
-        if (ScrapFromUrlResult is null)
-        {
-            ScrapFromUrlError = "Impossible de récupérer les informations de l'anime";
-        }
-        
-        StateHasChanged();
     }
 
     public void Dispose()
