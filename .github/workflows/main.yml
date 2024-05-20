@@ -1,4 +1,4 @@
-name: Docimentation Icotaku (Blazor) sur GitHub Pages
+name: Documentation Icotaku (Blazor) sur GitHub Pages
 # Exécuter le workflow à chaque push vers la branche master
 on:
   push:
@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         # uses GitHub's checkout action to checkout code form the master branch
-      - uses: actions/checkout@v2
-    
+      - uses: actions/checkout@v4.1.5
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
     
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v4.0.0
