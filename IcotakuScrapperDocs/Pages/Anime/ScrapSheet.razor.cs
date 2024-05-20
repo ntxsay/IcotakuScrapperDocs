@@ -1,8 +1,4 @@
-﻿using AppsHelpers.Extensions.StringExtensions;
-using HtmlAgilityPack;
-using IcotakuScrapper.Models.SQLite.Anime;
-using IcotakuScrapper.Objects.Scrapping;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.JSInterop;
 
@@ -14,8 +10,6 @@ public partial class ScrapSheet : ComponentBase
     private bool IsScrapFromUrlRunning { get; set; }
     private string? ScrapFromUrlError { get; set; }
     
-    private AnimeBase? ScrapFromUrlResult { get; set; }
-
     private void NavigateToCounterComponent()
     {
         Navigation.NavigateTo("counter");

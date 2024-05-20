@@ -77,26 +77,6 @@ Console.WriteLine(anime.ReleaseDate.ToString());
                                 <Content>@ScrapFromUrlError</Content>
                             </Alert>
                         }
-                        else
-                        {
-                            <ul>
-                                @if (ScrapFromUrlResult is not null)
-                                {
-                                    <li>
-                                        <span>Nom de l'anime : @ScrapFromUrlResult.Name</span>
-                                    </li>
-                                    <li>
-                                        <span>Nombre d'épisodes : @ScrapFromUrlResult.EpisodeCount</span>
-                                    </li>
-                                    <li>
-                                        <span>Synopsis : @ScrapFromUrlResult.Synopsis</span>
-                                    </li>
-                                    <li>
-                                        <span>Date de sortie : @ScrapFromUrlResult.ReleaseDate</span>
-                                    </li>
-                                }
-                            </ul>
-                        }
                     </div>
                 </div>
             </div>
