@@ -11,8 +11,6 @@ jobs:
     steps:
         # uses GitHub's checkout action to checkout code form the master branch
       - uses: actions/checkout@v4.1.5
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
     
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v4.0.0
